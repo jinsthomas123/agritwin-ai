@@ -1,0 +1,276 @@
+
+/* =========================================
+   AGRITWIN AI — PROFESSIONAL DASHBOARD
+   ========================================= */
+
+:root {
+  --app-bg: #070e0b;
+  --sidebar-bg: #0b1711;
+  --surface: #101e16;
+  --surface-hover: #16291d;
+  --surface-soft: #13231a;
+  --border: #203b2b;
+  --border-light: #294b36;
+
+  --primary: #43d98b;
+  --primary-soft: rgba(67, 217, 139, 0.12);
+  --primary-glow: rgba(67, 217, 139, 0.18);
+
+  --text-primary: #edf7f0;
+  --text-secondary: #a0b5a7;
+  --text-muted: #718779;
+
+  --warning: #f5b85c;
+  --danger: #f16b70;
+  --info: #65b8ed;
+
+  --radius-sm: 9px;
+  --radius-md: 13px;
+  --radius-lg: 17px;
+
+  --shadow-card:
+    0 8px 28px rgba(0, 0, 0, 0.20);
+}
+
+/* GLOBAL */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--app-bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      ellipse at 75% 0%,
+      rgba(25, 82, 48, 0.12),
+      transparent 40%
+    ),
+    var(--app-bg);
+  color: var(--text-primary);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  text-align: left;
+  background: transparent;
+}
+
+/* TYPOGRAPHY */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary) !important;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.35px;
+}
+
+h1 {
+  font-size: 27px;
+}
+
+h2 {
+  font-size: 21px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+small {
+  color: var(--text-muted);
+}
+
+/* SIDEBAR */
+
+aside {
+  background: var(--sidebar-bg) !important;
+  border-right: 1px solid var(--border) !important;
+  box-shadow: 8px 0 30px rgba(0, 0, 0, 0.12);
+}
+
+/* SIDEBAR NAVIGATION HOVER */
+
+aside > div[style] {
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* BUTTONS */
+
+button {
+  color: var(--text-primary);
+  font-family: inherit;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* DASHBOARD SECTIONS */
+
+section {
+  border-radius: var(--radius-lg);
+}
+
+section[style] {
+  box-shadow: var(--shadow-card);
+}
+
+/* FARM OVERVIEW PANEL */
+
+section[style] h2 {
+  letter-spacing: -0.5px;
+}
+
+/* METRIC AND SENSOR ICONS */
+
+svg {
+  flex-shrink: 0;
+}
+
+/* CHARTS */
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #263e30;
+}
+
+.recharts-text {
+  fill: #9bb1a2;
+  font-size: 11px;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+.recharts-default-tooltip {
+  background: #112219 !important;
+  border: 1px solid #31553d !important;
+  border-radius: 10px !important;
+  box-shadow: var(--shadow-card);
+}
+
+.recharts-tooltip-label,
+.recharts-tooltip-item {
+  color: #edf7f0 !important;
+}
+
+/* FARM 3D CONTAINER */
+
+canvas {
+  outline: none;
+  border-radius: 12px;
+}
+
+/* INPUTS */
+
+input,
+select,
+textarea {
+  background: var(--surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+/* SELECTION */
+
+::selection {
+  background: #286d46;
+  color: white;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09120d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #294b36;
+  border-radius: 10px;
+  border: 2px solid #09120d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #43d98b;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  body {
+    font-size: 13px;
+  }
+
+  h1 {
+    font-size: 23px;
+  }
+
+  h2 {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 21px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+}
