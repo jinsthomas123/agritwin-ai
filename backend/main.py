@@ -3,7 +3,7 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 import random
 import sqlite3
-
+import os
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -18,21 +18,32 @@ app = FastAPI(
     version="1.0.0",
 )
 
+FRONTEND_URL = os.getenv("FRONTEND_URL", "")
+
+ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:5174",
+    "http://127.0.0.1:5174",
+]
+
+if FRONTEND_URL:
+    ALLOWED_ORIGINS.append(FRONTEND_URL.rstrip("/"))
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://localhost:5174",
-        "http://127.0.0.1:5174",
-    ],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 BASE_DIR = Path(__file__).resolve().parent
-DB_PATH = BASE_DIR / "agritwin.db"
+
+DB_PATH = Path(
+    os.getenv("DATABASE_PATH", str(BASE_DIR / "agritwin.db"))
+)
+
 
 ZONES = [
     {"zone_id": 1, "zone_name": "North Plantation"},

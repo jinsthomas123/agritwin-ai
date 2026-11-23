@@ -28,7 +28,7 @@ function CardamomPlant({ position, scale = 1 }) {
               Math.cos(angle) * 0.55
             ]}
           >
-            <sphereGeometry args={[0.18, 12, 12]} />
+            <sphereGeometry args={[0.18, 8, 8]} />
             <meshStandardMaterial
               color={i % 2 === 0 ? "#36a852" : "#65bd55"}
             />
@@ -120,10 +120,9 @@ function FarmScene({ selectedZone, onZoneSelect }) {
       <ambientLight intensity={1.2} />
 
       <directionalLight
-        position={[8, 12, 6]}
-        intensity={2}
-        castShadow
-      />
+  position={[8, 12, 6]}
+  intensity={2}
+/>
 
       <mesh
         rotation={[-Math.PI / 2, 0, 0]}
@@ -208,12 +207,13 @@ export default function Farm3D({
       overflow: "hidden",
       border: "1px solid #234333"
     }}>
-      <Canvas
-        camera={{
-          position: [18, 19, 22],
-          fov: 45
-        }}
-      >
+    <Canvas
+  dpr={[1, 1.5]}
+  camera={{
+    position: [18, 19, 22],
+    fov: 45
+  }}
+>
         <FarmScene
           selectedZone={selectedZone}
           onZoneSelect={onZoneSelect}
