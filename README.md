@@ -143,3 +143,14 @@ The current version demonstrates simulated sensor monitoring, interactive farm v
 ## Author
 
 Developed as an AI and smart agriculture technology project.
+
+## 📸 Project Screenshots
+
+### 1. AgriTwin AI Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### 2. Sensor Analytics
+![Sensor Analytics](screenshots/analytics.png)
+
+### 3. Farm Intelligence Alerts
+![Farm Alerts](screenshots/alerts.png)
