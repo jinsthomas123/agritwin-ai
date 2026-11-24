@@ -679,7 +679,7 @@ const getZoneStatus = (zone) => {
             fontSize: 10,
             marginTop: 7,
           }}>
-            API: localhost:8013
+            API: Render Backend
           </div>
         </div>
       </aside>
